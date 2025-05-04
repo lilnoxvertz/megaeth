@@ -13,6 +13,10 @@
 3. mint token
 
 ## Commands
+- Swapping
+  ``` bash
+     npm start
+  ```
 
 - Generating a wallet
 
