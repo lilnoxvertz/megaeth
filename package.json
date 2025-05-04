@@ -1,0 +1,23 @@
+{
+  "name": "megaeth",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "x",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "mint": "node mint.token.js",
+    "generate": "node generate.wallet.js",
+    "send": "node mass.send.eth.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ethers": "^6.13.5",
+    "puppeteer": "^24.7.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}

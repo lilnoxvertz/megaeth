@@ -1,0 +1,246 @@
+[
+    {
+        "name": "swapExactETHForTokens",
+        "type": "function",
+        "stateMutability": "payable",
+        "inputs": [
+            {
+                "name": "amountOutMin",
+                "type": "uint256"
+            },
+            {
+                "name": "path",
+                "type": "address[]"
+            },
+            {
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "name": "deadline",
+                "type": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "amounts",
+                "type": "uint256[]"
+            }
+        ]
+    },
+    {
+        "name": "swapExactTokensForETH",
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "inputs": [
+            {
+                "name": "amountIn",
+                "type": "uint256"
+            },
+            {
+                "name": "amountOutMin",
+                "type": "uint256"
+            },
+            {
+                "name": "path",
+                "type": "address[]"
+            },
+            {
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "name": "deadline",
+                "type": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "amounts",
+                "type": "uint256[]"
+            }
+        ]
+    },
+    {
+        "name": "swapExactTokensForTokens",
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "inputs": [
+            {
+                "name": "amountIn",
+                "type": "uint256"
+            },
+            {
+                "name": "amountOutMin",
+                "type": "uint256"
+            },
+            {
+                "name": "path",
+                "type": "address[]"
+            },
+            {
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "name": "deadline",
+                "type": "uint256"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "amounts",
+                "type": "uint256[]"
+            }
+        ]
+    },
+    {
+        "name": "getAmountsOut",
+        "type": "function",
+        "stateMutability": "view",
+        "inputs": [
+            {
+                "name": "amountIn",
+                "type": "uint256"
+            },
+            {
+                "name": "path",
+                "type": "address[]"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "amounts",
+                "type": "uint256[]"
+            }
+        ]
+    },
+    {
+        "name": "mint",
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "inputs": [
+            {
+                "name": "to",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "decimals",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "symbol",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "name",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "name": "value",
+                "type": "uint256"
+            }
+        ],
+        "name": "transfer",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "deposit",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    }
+]
