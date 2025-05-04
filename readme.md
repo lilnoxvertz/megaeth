@@ -23,9 +23,9 @@
 1.  go to generate.wallet.js then set the amount of wallet that you wanted to generate
 2.  then run this code on console
 
-```bash
+   ```bash
    npm run generate
-```
+   ```
 
 - Minting token
 
