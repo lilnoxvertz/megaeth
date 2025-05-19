@@ -65,6 +65,7 @@ async function massSend() {
             }
 
             console.log(`\nhash: https://www.megaexplorer.xyz/tx/${receipt?.hash}`)
+            i++
             await delay(5000, 10000)
         }
     } catch (error) {
