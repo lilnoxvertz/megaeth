@@ -7,17 +7,19 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
-    "mint": "node mint.token.js",
-    "generate": "node generate.wallet.js",
-    "send": "node mass.send.eth.js",
+    "start": "node ./src/main/swap.token.js",
+    "mint": "node ./src/main/mint.token.js",
+    "generate": "node ./src/main/generate.wallet.js",
+    "send": "node ./src/main/mass.send.eth.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "chalk": "^5.4.1",
     "dotenv": "^16.5.0",
     "ethers": "^6.13.5",
     "puppeteer": "^24.7.1",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer-real-browser": "^1.4.2"
   }
 }

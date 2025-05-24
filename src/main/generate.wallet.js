@@ -1,4 +1,4 @@
-const Wallet = require("./services/wallet.services")
+const Wallet = require("../utils/wallet.utils")
 
 async function generateWallet(amount) {
     console.log(`generating ${amount} wallet`)
@@ -6,4 +6,4 @@ async function generateWallet(amount) {
     console.log(`done!`)
 }
 
-generateWallet(9)
+generateWallet(15)

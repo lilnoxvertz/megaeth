@@ -1,5 +1,5 @@
 const ethers = require("ethers")
-const abi = require("../abi.json")
+const abi = require("../../abi.json")
 const { megaETH, tkMintTestTokenContract } = require("../config/config")
 const Token = require("./token.services")
 

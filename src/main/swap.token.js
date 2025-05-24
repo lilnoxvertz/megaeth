@@ -1,9 +1,9 @@
 const { ethers } = require("ethers")
-const { megaETH, tkMintTestTokenContract, swapMode } = require("./config/config")
-const Token = require("./services/token.services")
-const Transaction = require("./services/transaction.services")
-const Wallet = require("./services/wallet.services")
-const Randomize = require("./utils/randomize")
+const { megaETH, tkMintTestTokenContract, swapMode } = require("../config/config")
+const Token = require("../services/token.services")
+const Wallet = require("../utils/wallet.utils")
+const Randomize = require("../utils/randomize")
+const Transaction = require("../services/transaction.services")
 
 const stats = {
     success: 0,
@@ -102,7 +102,7 @@ async function swapTokenToToken(wallet) {
             token.symbol(),
         ])
 
-        const newToToken = fromTokenAddress === toTokenAddress ? Randomize.tokenAddress(tokenArr) : toTokenAddress
+        const newToToken = fromTokenAddress === toTokenAddress ? tokenArr[0] : toTokenAddress
 
         const newTokenSymbol = await new Token(wallet, newToToken).symbol()
         const tokenAmount = Randomize.tokenAmount(fromTokenBalance, fromTokenDecimal)
@@ -182,7 +182,7 @@ async function processWallet(wallets) {
 
 async function main() {
     try {
-        const wallets = await Wallet.load()
+        const wallets = await Wallet.loadPrivatekey()
 
         if (wallets.length === 0) {
             console.log('no private key found at privateKey.txt')

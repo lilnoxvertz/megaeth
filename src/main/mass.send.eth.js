@@ -1,8 +1,8 @@
 const { ethers } = require("ethers");
-const Wallet = require("./services/wallet.services");
-const { megaETH } = require("./config/config");
-const abi = require("./abi.json");
-const Transaction = require("./services/transaction.services");
+const Wallet = require("../utils/wallet.utils");
+const { megaETH } = require("../config/config");
+const abi = require("../../abi.json");
+const Transaction = require("../services/transaction.services");
 require("dotenv").config()
 
 const stats = {
@@ -22,7 +22,7 @@ async function massSend() {
     const contract = new ethers.Contract(megaETH.ethAddress, abi, wallet)
 
     let i = 0
-    const pkArr = await Wallet.load()
+    const pkArr = await Wallet.loadPrivatekey()
 
     if (pkArr.length === 0) {
         console.log("no private keys found")
@@ -65,6 +65,7 @@ async function massSend() {
             }
 
             console.log(`\nhash: https://www.megaexplorer.xyz/tx/${receipt?.hash}`)
+            i++
             await delay(5000, 10000)
         }
     } catch (error) {

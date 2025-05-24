@@ -1,7 +1,7 @@
 const { ethers } = require("ethers");
-const { megaETH, tkMintTestTokenContract } = require("./config/config");
-const Transaction = require("./services/transaction.services");
-const Wallet = require("./services/wallet.services");
+const { megaETH, tkMintTestTokenContract } = require("../config/config");
+const Transaction = require("../services/transaction.services");
+const Wallet = require("../utils/wallet.utils")
 
 const tokenArr = [
     tkMintTestTokenContract.cUSD,
@@ -50,7 +50,7 @@ async function mint(wallets) {
 async function loadWallet() {
     let i = 1
     try {
-        const wallet = await Wallet.load()
+        const wallet = await Wallet.loadPrivatekey()
 
         for (const pk of wallet) {
             w = new ethers.Wallet(pk, megaETH.rpc)

@@ -1,5 +1,4 @@
-const { megaETH } = require("../config/config")
-const abi = require("../abi.json")
+const abi = require("../../abi.json")
 const { ethers } = require("ethers")
 
 class Token {
