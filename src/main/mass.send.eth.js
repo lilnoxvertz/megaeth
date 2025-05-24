@@ -1,8 +1,8 @@
 const { ethers } = require("ethers");
-const Wallet = require("../utils/wallet.utils");
 const { megaETH } = require("../config/config");
 const abi = require("../../abi.json");
 const Transaction = require("../services/transaction.services");
+const Wallet = require("../utils/wallet.utils");
 require("dotenv").config()
 
 const stats = {
@@ -22,7 +22,7 @@ async function massSend() {
     const contract = new ethers.Contract(megaETH.ethAddress, abi, wallet)
 
     let i = 0
-    const pkArr = await Wallet.loadPrivateKey()
+    const pkArr = await Wallet.loadPrivatekey()
 
     if (pkArr.length === 0) {
         console.log("no private keys found")
