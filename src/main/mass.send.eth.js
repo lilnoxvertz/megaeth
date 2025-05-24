@@ -22,7 +22,7 @@ async function massSend() {
     const contract = new ethers.Contract(megaETH.ethAddress, abi, wallet)
 
     let i = 0
-    const pkArr = await Wallet.loadPrivatekey()
+    const pkArr = await Wallet.loadPrivateKey()
 
     if (pkArr.length === 0) {
         console.log("no private keys found")
