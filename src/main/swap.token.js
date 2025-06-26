@@ -158,6 +158,8 @@ async function processWallet(wallets) {
                     stats.cycle++
                 }
 
+                const nonce = await megaETH.rpc.getTransactionCount(wallet.address, "latest")
+
                 console.clear()
                 console.log('[MEGAETH BOT | github.com/lilnoxvertz]\n')
                 console.log(`[TOTAL TX      : ${stats.total}]`)
@@ -165,9 +167,10 @@ async function processWallet(wallets) {
                 console.log(`❌ | REVERTED  : ${stats.reverted}`)
 
                 console.log('\n[WALLET]')
-                console.log(`LOADED         : ${wallets.length} wallet`)
-                console.log(`CYCLE          : ${stats.cycle}`)
-                console.log(`current wallet : ${wallet.address} [${i}]\n`)
+                console.log(`LOADED          : ${wallets.length} wallet`)
+                console.log(`CYCLE           : ${stats.cycle}`)
+                console.log(`current wallet  : ${wallet.address} [${i}]`)
+                console.log(`total tx : ${nonce}\n`)
 
                 await startingTransaction(wallet)
                 i++

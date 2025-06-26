@@ -7,7 +7,7 @@ class Wallet {
             return fs.readFileSync("privateKey.txt", "utf8")
                 .split("\n")
                 .filter((line) => line.trim())
-                .map((address) => address.split(",")[0])
+                .map((address) => address.trim().split(",")[0])
         } catch (error) {
             console.error(error)
         }
@@ -18,7 +18,7 @@ class Wallet {
             return fs.readFileSync("privateKey.txt", "utf8")
                 .split("\n")
                 .filter((line) => line.trim())
-                .map((address) => address.split(",")[1])
+                .map((address) => address.trim().split(",")[1])
         } catch (error) {
             console.error(error)
         }

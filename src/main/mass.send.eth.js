@@ -29,47 +29,52 @@ async function massSend() {
         process.exit(1)
     }
 
-    try {
-        for (const pk of pkArr) {
-            const recipient = new ethers.Wallet(pk)
-            console.clear()
-            console.log('[MEGAETH BOT | github.com/lilnoxvertz]\n')
-            console.log(`[TOTAL TX      : ${stats.total}]`)
-            console.log(`✅ | SUCCESS   : ${stats.success}`)
-            console.log(`❌ | REVERTED  : ${stats.reverted}`)
+    let cycle = 0
+    const maxCycle = 5
+    while (cycle < maxCycle) {
+        cycle++
+        try {
+            for (const pk of pkArr) {
+                const recipient = new ethers.Wallet(pk)
+                console.clear()
+                console.log('[MEGAETH BOT | github.com/lilnoxvertz]\n')
+                console.log(`[TOTAL TX      : ${stats.total}]`)
+                console.log(`✅ | SUCCESS   : ${stats.success}`)
+                console.log(`❌ | REVERTED  : ${stats.reverted}`)
 
-            console.log(`\n[MASS SENDING ETH | #${i}]`)
-            console.log(`wallet : ${wallet.address}`)
-            const balance = await megaETH.rpc.getBalance(wallet.address)
-            console.log(`balance: ${ethers.formatEther(balance)}`)
-            console.log(`\nto     : ${recipient.address}`)
-            console.log(`amount : 0.001`)
+                console.log(`\n[MASS SENDING ETH | #${i}] | CYCLE [${cycle}]`)
+                console.log(`wallet : ${wallet.address}`)
+                const balance = await megaETH.rpc.getBalance(wallet.address)
+                console.log(`balance: ${ethers.formatEther(balance)}`)
+                console.log(`\nto     : ${recipient.address}`)
+                console.log(`amount : 0.001`)
 
-            const deposit = await contract.deposit({
-                value: ethers.parseEther("0.001")
-            })
-            await deposit.wait()
+                const deposit = await contract.deposit({
+                    value: ethers.parseEther("0.001")
+                })
+                await deposit.wait()
 
-            const amount = ethers.parseEther("0.001")
-            const tx = await contract.transfer(recipient.address, amount)
+                const amount = ethers.parseEther("0.001")
+                const tx = await contract.transfer(recipient.address, amount)
 
-            await tx.wait()
-            const receipt = await new Transaction(wallet).check(tx.hash)
+                await tx.wait()
+                const receipt = await new Transaction(wallet).check(tx.hash)
 
-            if (receipt.status === 1) {
-                stats.success++
-                stats.total++
-            } else {
-                stats.reverted++
-                stats.total
+                if (receipt.status === 1) {
+                    stats.success++
+                    stats.total++
+                } else {
+                    stats.reverted++
+                    stats.total
+                }
+
+                console.log(`\nhash: https://www.megaexplorer.xyz/tx/${receipt?.hash}`)
+                i++
+                await delay(5000, 10000)
             }
-
-            console.log(`\nhash: https://www.megaexplorer.xyz/tx/${receipt?.hash}`)
-            i++
-            await delay(5000, 10000)
+        } catch (error) {
+            console.error(error)
         }
-    } catch (error) {
-        console.error(error)
     }
 }
 
